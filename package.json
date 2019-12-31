@@ -4,7 +4,7 @@
   "description": "Web application using MERN stack following the Udemy tutorial from @bradtraversy",
   "main": "server.js",
   "scripts": {
-    "sart": "node server",
+    "start": "node server",
     "server": "nodemon server",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
