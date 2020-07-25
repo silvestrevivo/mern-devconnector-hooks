@@ -9,7 +9,7 @@ const auth = require('../../middleware/auth');
 const User = require('../../models/Users');
 
 // @route   GET api/auth
-// @desc    Protected route
+// @desc    Protected route (check if the user exists)
 // @access  Public
 router.get('/', auth, async (req, res) => {
   try {
@@ -22,7 +22,7 @@ router.get('/', auth, async (req, res) => {
 });
 
 // @route   POST api/auth
-// @desc    Authenticate user + get token
+// @desc    Authenticate user + get token (login)
 // @access  Public
 router.post('/', [
   check('email', 'Please include a valid email').isEmail(),

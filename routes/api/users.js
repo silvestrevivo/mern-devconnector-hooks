@@ -9,7 +9,7 @@ const { check, validationResult } = require('express-validator');
 const User = require('../../models/Users');
 
 // @route   POST api/users
-// @desc    Register user
+// @desc    Register user (sign up)
 // @access  Public
 router.post('/', [
   check('name', 'Name is required').not().isEmpty(),
@@ -19,6 +19,7 @@ router.post('/', [
   const errors = validationResult(req);
   //if errors
   if(!errors.isEmpty()){
+    // 400 => bad request from the client
     return res.status(400).json({errors: errors.array()})
   }
 
@@ -52,7 +53,7 @@ router.post('/', [
     const payload = {
       user: {
         id: user.id
-        // this Id comes from DataBase when user is created
+        // this Id comes from DataBase when user is created and is UNIQUE
       }
     };
     jwt.sign(payload, config.get('jwtSecret'), { expiresIn: 3600 }, (err, token) => {

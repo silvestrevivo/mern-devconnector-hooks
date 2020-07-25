@@ -104,4 +104,8 @@ router.post('/', [
     }
 });
 
+// @route   GET api/profile
+// @desc    Get all profiles
+// @access  Public
+
 module.exports = router;
